@@ -12,7 +12,7 @@ Downloading Arch
 INSTALLING ARCH
 -	I did not need to change the keyboard layout as it was already set to US.
 -	`ls /sys/firmware/efi/efivars` returns nothing. System booted in BIOS mode. This is an important note to keep track of. For the rest of the install, we are assuming     that we are installing in BIOS MBR mode.
--	Ensured that network adapter was bridged directly to my network card. NAT is not working in my vmware for some reason. Unsure. IP successfully obtained through         DHCP in live image when running ip addr. Pinging arch linux site was successful. 
+-	Ensured that network adapter was bridged directly to my network card. NAT is not working in my vmware for some reason. Unsure. IP successfully obtained through DHCP in live image when running ip addr. Pinging arch linux site was successful. 
 -	Checked timezone using timedatectl status. Confirmed that system clock was synced with UTC time.
 -	Partitioning the disk…
     -	fdisk -l listed one disk and one partition. 20GB total.
@@ -41,7 +41,7 @@ INSTALLING ARCH
         -	`pacstrap -K /mnt base linux linux-firmware`
             -	This took some time
 -   Configure system
-    -	Generate an fstab with: Genfstab -U /mnt >> /mnt/etc/fstab 
+    -	Generate an fstab with: `genfstab -U /mnt >> /mnt/etc/fstab`
         -	Cat this new file to ensure it reflects the disk correctly
     -	chroot into new directory with: `arch-chroot /mnt`
     -	Set timezone with : `ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime`
@@ -50,11 +50,11 @@ INSTALLING ARCH
     -	Edit locale.gen file and uncomment the en_us and any other locale needed. I had to manually add this, as it wasn’t there.
     -	Run locale-gen command to generate all uncommented locales.
     -	Create local.conf file with: `touch /etc/locale.conf`
-    -	Edit locale.conf file: add lang variable with: `vi /etc/locale.conf` and add LANG=en_US.UTF-8
+    -	Edit locale.conf file: add lang variable with: `vi /etc/locale.conf` and add `LANG=en_US.UTF-8`
     -	Didn’t change keyboard layout, so didn’t need to make changes persistent in vconsole.conf
 
 NETWORK CONFIG
--	Create hostname file. Touch /etc/hostname. Vi /etc/hostname and add whatever you want the hostname to be. I used "archsux"
+-	Create hostname file. `touch /etc/hostname` to create it, then `vi /etc/hostname` and add whatever you want the hostname to be. I used "archsux"
 -	DHCP provided all information, and I don’t care about deprecated nettools commands. Left defaults for now.
 
 ROOT PASSWORD
