@@ -103,4 +103,6 @@ AFTER INSTALL…
     -	This makes part of the shell red.
 -	While in .bashrc, add alias for `ls -lah` and `sudo` as seen below
     -	 ![image](https://user-images.githubusercontent.com/70538441/197404805-b9cd84b0-e24b-4276-a2ff-bb217f74ddcb.png)
+COMPLETED INSTALL
+![image](https://user-images.githubusercontent.com/70538441/199751372-8ba5ac97-c8ef-4ec8-8878-e7962c3aa430.png)
 
